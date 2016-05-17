@@ -13,7 +13,7 @@ return [
     |
     */
     'signup_fields' => [
-        'name', 'email', 'password'
+        'username', 'password', 'email', 'FirstName', 'LastName', 'birthday', 'gender', 'city', 'state', 'interests', 'bio', 'ProfilePic'		
     ],
 
     /*
@@ -26,9 +26,18 @@ return [
     |
     */
     'signup_fields_rules' => [
-    	'name' => 'required',
-    	'email' => 'required|email|unique:users',
-    	'password' => 'required|min:6'
+		'username' => 'required|unique:users',
+		'password' => 'required|min:8',
+		'email' => 'required|email|unique:users',
+		'FirstName' => 'required',
+		'LastName' => 'required',
+		'birthday' => 'required',
+		'gender' => 'required',
+		'city' => 'required',
+		'state' => 'required',
+		'interests',
+		'bio' => "max:500",
+		'ProfilePic'
     ],
 
     /*

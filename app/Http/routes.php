@@ -1,5 +1,4 @@
 <?php
-
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -10,7 +9,7 @@
 | and give it the controller to call when that URI is requested.
 |
 */
-
+//GET route that returns the homepage
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });

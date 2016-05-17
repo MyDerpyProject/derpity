@@ -1,0 +1,31 @@
+<div class="row">
+    <div class="col-md-4 col-md-offset-4">
+        <h2>Signup</h2>
+        <p>Welcome! If you want to sign up to our awesome service, fill this form and press on "Signup"!</p>
+        
+        <hr>
+
+        <p><input type="text" class="form-control" placeholder="Username..." ng-model="username" required /></p>
+		<p><input type="password" class="form-control" placeholder="Password..." ng-model="password" required /></p>
+        <p><input type="text" class="form-control" placeholder="Email Address..." ng-model="email" required /></p>
+		<p><input type="text" class="form-control" placeholder="First Name..." ng-model="FirstName" required /></p>
+		<p><input type="text" class="form-control" placeholder="Last Name..." ng-model="LastName" required /></p>
+		<p><input type="text" class="form-control" placeholder="Birthday..." ng-model="birthday" required /></p>
+		<p><input type="text" class="form-control" placeholder="Gender..." ng-model="gender" required /></p>
+		<p><input type="text" class="form-control" placeholder="City..." ng-model="city" required /></p>
+		<p><input type="text" class="form-control" placeholder="State..." ng-model="state" required /></p>
+		<p><input type="text" class="form-control" placeholder="Interests..." ng-model="interests" required /></p>
+		<p><input type="text" class="form-control" placeholder="Biography..." ng-model="bio" required /></p>
+		
+		<div class="button" ngf-select ng-model="ProfilePic" name="file" ngf-pattern="'image/*'" ngf-accept="'image/*'" ngf-max-size="2MB" ngf-min-height="100" ngf-resize="{width: 100, height: 100}">Select</div>
+		
+
+        <hr>
+
+        <p><button type="button" class="btn btn-success form-control" ng-click="signup()">Signup</button></p>
+
+        <hr>
+
+        <p><a href="#login">Already signed up? <b>Log in!</b></a></p>
+    </div>
+</div>
