@@ -24,11 +24,9 @@ wimControllers.controller('LoginController', ['userService', '$location', '$scop
 
 wimControllers.controller('SignupController', [ 'userService', '$scope', '$http', '$location', function (userService, $scope, $http, $location) {
 
-	$scope.signup = function() {
-		console.log($scope.file.name);
-		console.dir($scope.file);
+	$scope.signup = function(file) {
 		userService.signup(
-			$scope.username, $scope.password, $scope.email, $scope.FirstName, $scope.LastName, $scope.birthday, $scope.gender, $scope.city, $scope.state, $scope.interests, $scope.bio, $scope.file.name,
+			$scope.username, $scope.password, $scope.email, $scope.FirstName, $scope.LastName, $scope.birthday, $scope.gender, $scope.city, $scope.state, $scope.interests, $scope.bio, file,
 			function(response){
 				alert('Great! You are signed up! Welcome to WIM(afy), ' + $scope.FirstName + '!');
 				$location.path('/').replace();
@@ -50,13 +48,21 @@ wimControllers.controller('SignupController', [ 'userService', '$scope', '$http'
 	$scope.state = '';
 	$scope.interests = '';
 	$scope.bio = '';
-	$scope.file = '';
+	file = '';
 	
 	if(userService.checkIfLoggedIn())
 		$location.path('/');
 	
 }]);
 
+/*wimControllers.controller('fileUpload', ['$scope', 'Upload', function($scope, Upload){
+	$scope.fileUpload = function(){
+		if($scope.form.file.$valid && $scope.file){
+			$scope.upload($scope.file);
+		}
+	};	
+}]);
+*/
 wimControllers.controller('MainController', ['$scope', '$http', function ($scope, $http) {
     
 }]);

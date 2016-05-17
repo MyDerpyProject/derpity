@@ -17,12 +17,25 @@
 		<p><input type="text" class="form-control" placeholder="Interests..." ng-model="interests" required /></p>
 		<p><input type="text" class="form-control" placeholder="Biography..." ng-model="bio" required /></p>
 		
+		<body ng-app "fileUpload" ng-controller="fileUpload">
+			<form name="upload">
+				<br>Photo:
+				<input type="file" ngf-select ng-model="ProfilePic" name="file" 
+						accept="image/*" ngf-max-size="2MB" required
+						ngf-model-invalid="errorFile"
+						ngf-allow-dir="false" accept="image/jpeg,image/jpg,image/png" 
+						ngf-pattern="'image/jpeg,image/jpg,image/png'" 
+						ngf-resize="{width: 100, height: 100, quality: 1.0, centerCrop: true, type: 'image/png', restoreExif: false}">
+				<img ng-show="upload.file.$valid"> <button ng-click="ProfilePic = null" ng-show="ProfilePic">Remove</button>
+		
+		<!--
 		<div class="button" ngf-select ng-model="ProfilePic" name="file" ngf-pattern="'image/*'" ngf-accept="'image/*'" ngf-max-size="2MB" ngf-min-height="100" ngf-resize="{width: 100, height: 100}">Select</div>
+		-->
 		
 
         <hr>
 
-        <p><button type="button" class="btn btn-success form-control" ng-click="signup()">Signup</button></p>
+        <p><button type="button" class="btn btn-success form-control" ng-click="signup(ProfilePic)">Signup</button></p>
 
         <hr>
 

@@ -3,7 +3,7 @@ var wimServices = angular.module('wimServices', [
 	'ngFileUpload'
 ]);
 
-wimServices.factory('userService', ['$http', 'localStorageService', function($http, localStorageService) {
+wimServices.factory('userService', ['$http', 'Upload', 'localStorageService', function($http, Upload, localStorageService) {
 
 	function checkIfLoggedIn(){
 		if(localStorageService.get('token'))
@@ -13,20 +13,22 @@ wimServices.factory('userService', ['$http', 'localStorageService', function($ht
 	}
 
 	function signup(username, password, email, FirstName, LastName, birthday, gender, city, state, interests, bio, file, onSuccess, onError) {
-		$http.post('/api/auth/signup',
-		{
-			username: username,
-			password: password,
-			email: email,
-			FirstName: FirstName,
-			LastName: LastName,
-			birthday: birthday,
-			gender: gender,
-			city: city,
-			state: state,
-			interests: interests,
-			bio: bio,
-			ProfilePic: file,
+		Upload.upload({
+			url: '/api/auth/signup',
+			data: {
+				username: username,
+				password: password,
+				email: email,
+				FirstName: FirstName,
+				LastName: LastName,
+				birthday: birthday,
+				gender: gender,
+				city: city,
+				state: state,
+				interests: interests,
+				bio: bio,
+				ProfilePic: file,
+			}
 		}).
 		then(function(response) {
 			localStorageService.set('token', response.data.token);
