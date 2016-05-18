@@ -20,7 +20,7 @@ class CreateUsersTable extends Migration
             $table->string('FirstName');
             $table->string('LastName');
 			$table->string('birthday');
-            $table->string('gender');
+            $table->enum('gender', array('m','f'));
             $table->string('city');
             $table->string('state');
             $table->string('interests');
